@@ -95,7 +95,7 @@ async def admin_panel(callback: CallbackQuery):
     await callback.message.edit_text("👑 Заявки на модерацию:", reply_markup=InlineKeyboardMarkup(inline_keyboard=keyboard))
 
 @dp.callback_query(F.data.startswith("adm_view_"))
-async def admin_view(callback: CallbackQuery):
+asyncdef admin_view(callback: CallbackQuery):
     if callback.from_user.id != ADMIN_ID: return
     item_id = callback.data.split("_")[2]
     item = MODERATION_QUEUE.get(item_id)
